@@ -2,6 +2,7 @@ $(document).ready(function()
 {
 	var loginSubmitForm = ""; //url for login
 	var resetPassword = ""; //url for reset password
+	var createAccount = ""; //url for create account
 	
 	$("#submitlogin").submit(function(e) {
 		//prevent events from propogation.
@@ -36,6 +37,30 @@ $(document).ready(function()
 		$.ajax ({
 			type: "POST",
 			url: resetPassword, 
+			data: $(this).serialize(),
+			success: function(data) 
+			{
+				if(data === true)
+				{
+					//redirect to main page
+				}
+				else
+				{
+					$('#inputPassword').addClass('animated bounceOutLeft');
+				}
+		    },
+			error: function(data){
+				$('#inputPassword').addClass('animated bounceOutLeft');
+			}
+		});
+	});
+	
+	$("createAccount").submit(function(e){
+		e.preventDefault();
+		
+		$.ajax ({
+			type: "POST",
+			url: createAccount, 
 			data: $(this).serialize(),
 			success: function(data) 
 			{
