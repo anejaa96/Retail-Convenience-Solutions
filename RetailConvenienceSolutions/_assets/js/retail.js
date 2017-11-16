@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-	var loginSubmitForm = ""; //url for login
+	var loginSubmitForm = "/_assets/verifyuser.php"; //url for login
 	var resetPassword = ""; //url for reset password
 	var createAccount = ""; //url for create account
 	
@@ -11,7 +11,7 @@ $(document).ready(function()
 		$.ajax ({
 			type: "POST",
 			url: loginSubmitForm, 
-			data: $(this).serialize(),
+			//data: $(this).serialize(),
 			dataType : 'json',
 			//data : formData,
 			success: function(data) 
